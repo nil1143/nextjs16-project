@@ -30,12 +30,12 @@ if (!global.mongoose) {
 }
 
 /**
- * Establishes and returns a cached MongoDB connection using Mongoose.
- * 
- * This function implements connection pooling to prevent creating multiple
- * connections during development hot reloads and in serverless environments.
- * 
- * @returns Promise resolving to the Mongoose instance
+ * Establishes a cached Mongoose connection and reuses it across calls.
+ *
+ * Reuses an existing connection when available; otherwise creates and caches a new connection suitable for development hot reloads and serverless environments.
+ *
+ * @returns The connected Mongoose instance.
+ * @throws Any error encountered while establishing the connection.
  */
 async function connectDB(): Promise<typeof mongoose> {
   // Return existing connection if available
