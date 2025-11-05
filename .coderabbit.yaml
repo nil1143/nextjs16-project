@@ -1,0 +1,98 @@
+# CodeRabbit Configuration File
+# https://docs.coderabbit.ai/guides/configure-coderabbit
+
+# Language settings
+language: en-US
+
+# Review settings
+reviews:
+  # Review profile (chill, assertive, or custom)
+  profile: assertive
+  
+  # Request changes on critical issues
+  request_changes_workflow: true
+  
+  # High-level summary
+  high_level_summary: true
+  
+  # Poem (fun feature - set to false if you prefer serious reviews)
+  poem: true
+  
+  # Review status
+  review_status: true
+  
+  # Collapse walkthrough
+  collapse_walkthrough: false
+  
+  # Auto-review settings
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - main
+      - master
+      - develop
+
+# Chat settings
+chat:
+  auto_reply: true
+
+# Early access features
+early_access: false
+
+# Tone settings - how CodeRabbit communicates
+tone_instructions: |
+  - Be concise and technical
+  - Focus on code quality, performance, and best practices
+  - Highlight security vulnerabilities
+  - Suggest TypeScript improvements
+  - Point out Next.js 16 specific optimizations
+  - Review MongoDB/Mongoose usage for efficiency
+
+# Path-based instructions for specific file types
+path_instructions:
+  - path: "**/*.ts"
+    instructions: |
+      - Ensure proper TypeScript typing
+      - Check for type safety issues
+      - Suggest stricter types where applicable
+  
+  - path: "**/*.tsx"
+    instructions: |
+      - Review React 19 best practices
+      - Check for proper hooks usage
+      - Ensure accessibility (a11y) standards
+      - Verify proper error boundaries
+  
+  - path: "database/**"
+    instructions: |
+      - Verify Mongoose schema validations
+      - Check for proper indexing
+      - Review query optimization
+      - Ensure proper error handling
+  
+  - path: "app/**"
+    instructions: |
+      - Check Next.js 16 App Router conventions
+      - Review Server/Client Component usage
+      - Verify proper data fetching patterns
+      - Check for layout/page best practices
+
+# Files/patterns to ignore
+ignore:
+  - "**/*.json"
+  - "**/*.md"
+  - "**/node_modules/**"
+  - "**/.next/**"
+  - "**/dist/**"
+  - "**/build/**"
+  - "**/*.config.*"
+
+# Knowledge base - help CodeRabbit understand your project
+knowledge_base:
+  - "This is a Next.js 16 project using React 19"
+  - "Using TypeScript for type safety"
+  - "MongoDB with Mongoose for database operations"
+  - "Tailwind CSS v4 for styling"
+  - "PostHog for analytics"
+  - "Following conventional commits for version control"
